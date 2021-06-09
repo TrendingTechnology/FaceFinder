@@ -120,7 +120,7 @@ To get a local copy up and running follow these simple steps.
    
 4. To run the program, execute tasks.py with command line arguments:
    ```sh
-   python tasks.py --data-dir '<data folder path>' --input_image '<path to image>'
+   python Scripts/tasks.py --data-dir '<data folder path>' --input_image '<path to image>'
    ```
    Replace the <data folder path> and <path to image> with the real paths. They're just placeholders.
 
@@ -131,7 +131,7 @@ To get a local copy up and running follow these simple steps.
 
 To run it from the command line, you will need to pass two arguments.
    ```sh
-   python tasks.py --data-dir '<data folder path>' --input_image '<path to image>'
+   python Scripts/tasks.py --data-dir '<data folder path>' --input_image '<path to image>'
    ```
    Replace the <data folder path> and <path to image> with the real paths.
 
@@ -145,7 +145,7 @@ This program needs one directory containing different images labelled with whose
   4. Click an image of either your mom or your dad, the one you want to classify. Title it ```2bclassified.jpg``` and put it in the FaceFinder directory.
   5. Run this command:
      ```sh
-     python tasks.py --data-dir 'dataset/' --input_image '2bclassified.jpg'
+     python Scripts/tasks.py --data-dir 'dataset/' --input_image '2bclassified.jpg'
      ```
   Then, after about 20 minutes of processing (6-7 if you have a GPU), a window will open up displaying your image, with a box highlighting the detected face and a box of text saying either "Mom" or saying "Dad".
   
