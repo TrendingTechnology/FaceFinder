@@ -1,8 +1,9 @@
 # Welcome to my code, aliens!
  
 from cv2 import cvtColor, imread, COLOR_BGR2RGB, imshow, waitKey, rectangle, putText, FONT_HERSHEY_SIMPLEX   # Import statements fresh as a flower!
-from face-recognition import face_locations, face_encodings, compare_faces  # Import statements fresh as a flower!
+from face_recognition import face_locations, face_encodings, compare_faces  # Import statements fresh as a flower!
 from imutils.paths import list_images  # Import statements fresh as a flower!
+from pydron import functional, schedule
 from os.path import sep  # Import statements fresh as a flower!
 
 
@@ -10,6 +11,7 @@ class Model:
 
     def __init__(self): pass
 
+    @functional
     def preprocess_data(self, data_dir):  # Encode images as arrays with 128 dimensions
 
         recognized_encodings = recognized_names = []  # Create lists to store the names of the faces in the images and their encodings.
@@ -26,6 +28,7 @@ class Model:
         return recognized_names, recognized_encodings
 
 
+    @functional
     def compare_face(self, img_path, face_names, face_encodings):  # Compare processed data with input image.
         
         RGB = cvtColor(imread(img_path), COLOR_BGR2RGB)
@@ -49,7 +52,7 @@ class Model:
         
         return holders, people_faces, imread(img_path)
 
-
+    @functional
     def display_image(self, holders, faces, input_image):
 
         for ((up, right, down, left), face_name) in zip(holders, faces):
@@ -79,7 +82,7 @@ class Model:
         imshow("Image", input_image)
         waitKey(0)
 
-
+    @schedule
     def tune_and_evaluate(self, data_dir, image_path):
         self.model = Model()
         
